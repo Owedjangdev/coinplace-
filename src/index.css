@@ -1,0 +1,72 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+
+@import "tailwindcss";
+
+
+@theme {
+  /* Couleurs extraites de tes captures */
+  --color-dark-bg: #0b004e;
+  --color-dark-border: #3c3c3c;
+  --color-nav-text: #ddd;
+  --color-opt-bg: #09005c;
+  --color-btn-text: #393939;
+
+  /* Dégradé de fond du body */
+  --background-image-main-gradient: linear-gradient(
+    to bottom,
+    #0b004e,
+    #1d152f,
+    #002834
+  );
+
+  /* Police d'écriture Outfit */
+  --font-outfit: "Outfit", sans-serif;
+}
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border font-outfit;
+  }
+
+  body {
+    background-image: var(--background-image-main-gradient);
+    background-attachment: fixed;
+    @apply min-h-screen text-white antialiased;
+  }
+
+  a {
+    @apply no-underline text-inherit cursor-pointer;
+  }
+}
+
+@layer components {
+  /* Transformation du .navbar */
+  .nav-container {
+    @apply flex items-center justify-between py-5 px-[10%] border-b-2 border-dark-border text-nav-text;
+  }
+
+  /* Style des liens de navigation */
+  .nav-menu {
+    @apply flex items-center gap-10 list-none;
+  }
+
+  .nav-link {
+    @apply cursor-pointer hover:text-white transition-colors;
+  }
+
+  /* Style du selecteur de monnaie */
+  .currency-select {
+    @apply py-1 px-2 rounded-md border-2 border-white bg-transparent text-white cursor-pointer;
+  }
+
+  .currency-option {
+    @apply bg-opt-bg text-white;
+  }
+
+  /* Style du bouton Sign Up */
+  .btn-signup {
+    @apply flex items-center gap-2.5 py-2.5 px-6 rounded-3xl bg-white text-btn-text text-[15px] font-medium border-none cursor-pointer hover:bg-gray-100 transition-all;
+  }
+}
